@@ -23,9 +23,21 @@ class DataProvider:
                     self.data1[i, j] = int(item)
                     j += 1
                 i += 1
-        self._distances = []
-        self._distances.append([])
-        self._distances.append([])
+        with open(module_path+'/q3d1.csv','r') as f:
+            self.x2 = len(f.readlines())
+            f.seek(0, SEEK_SET)
+            f_csv = csv.reader(f)
+            self.y2 = len(next(f_csv))
+            f.seek(0, SEEK_SET)
+            self.data2 = np.empty([self.x2, self.y2], float)
+            i = int(0)
+            j = int(0)
+            for row in f_csv:
+                j = 0
+                for item in row:
+                    self.data2[i,j] = float(item)
+                    j += 1
+                i += 1
 
     def getData1(self):
         return self.data1
@@ -40,7 +52,3 @@ class DataProvider:
 
     def getY(self):
         return self.x
-
-
-    def getDistance(self):
-        return self._distances

@@ -1,2 +1,11 @@
-./idea
-./build
+.idea/
+build/
+/facenet/
+/garmentMatching/
+/imageSpider/
+/MNIST_data/
+/models/
+/neural-networks-and-deep-learning-master/
+/pyTest/
+*.py
+*.spec
